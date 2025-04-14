@@ -8,6 +8,11 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
+  static TextStyle defaultLittleStyle = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
+    color: Colors.black,
+  );
   static TextStyle defaultStyle = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w600,
