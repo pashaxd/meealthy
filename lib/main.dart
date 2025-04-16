@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-import 'features/auth_feature/presentation/screen/auth_screen.dart';
+import 'features/auth_feature/presentation/screen/first_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +11,10 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: AuthScreen(),
+      home: FirstScreen(),
     );
   }
 }

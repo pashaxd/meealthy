@@ -6,6 +6,7 @@ import 'package:meealthy/utils/text_styles/text_styles.dart';
 
 import '../widgets/scroll_point.dart';
 import '../widgets/slider_card.dart';
+import 'auth_screen.dart';
 
 class SliderScreen extends StatelessWidget {
   SliderScreen({super.key});
@@ -29,15 +30,17 @@ class SliderScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              TextButton(
+
+    Obx(
+    () => card.value!=4?TextButton(
                 onPressed: () {
                   carouselController.jumpToPage(cardTexts.length - 1);
                 },
-                child: Text('Skip', style: TextStyles.defaultLittleStyle),
                 style: ButtonStyle(
                   overlayColor: MaterialStateProperty.all(Colors.transparent), // Убирает фон при нажатии
                 ),
-              ),
+                child: Text('Skip', style: TextStyles.defaultLittleStyle),
+              ):TextButton(onPressed: () {}, child: Text('')))
             ],
           ),
           CarouselSlider(
@@ -45,7 +48,7 @@ class SliderScreen extends StatelessWidget {
                 cardTexts.map((text) {
                   return Builder(
                     builder: (BuildContext context) {
-                      return Container(child: SliderCard(text: text));
+                      return Container(child: SliderCard(text: text,));
                     },
                   );
                 }).toList(),
@@ -82,8 +85,8 @@ class SliderScreen extends StatelessWidget {
               width:
                   card.value == 4
                       ? MediaQuery.of(context).size.width * 0.8
-                      : MediaQuery.of(context).size.width * 0.31,
-              duration: Duration(milliseconds: 500),
+                      : MediaQuery.of(context).size.width * 0,
+              duration: Duration(milliseconds: 200),
 
               child:
                   card.value == 4
@@ -95,7 +98,9 @@ class SliderScreen extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // Add your onPressed logic here
+                            Get.off(() =>
+
+                                AuthScreen());
                           },
                           child: Text(
                             'Okay! Start',

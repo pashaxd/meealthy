@@ -28,5 +28,10 @@ class TextStyles {
     fontWeight: FontWeight.w600,
     color: Colors.white,
   );
+  // static TextStyle defaultBigBlackStyle = TextStyle(
+  //   fontSize: 24,
+  //   fontWeight: FontWeight.w700,
+  //   color: Colors.black,
+  // );
 
 }
