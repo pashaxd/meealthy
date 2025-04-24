@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:meealthy/features/auth_feature/presentation/screen/health_integration_screen.dart';
 import 'package:meealthy/features/auth_feature/presentation/widgets/slider_card.dart';
 import 'package:meealthy/utils/text_styles/text_styles.dart';
 
+import '../../../../core/presentation/bottom_navigation/bottom_navigation.dart';
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
@@ -32,29 +37,42 @@ class AuthScreen extends StatelessWidget {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height*0.07,
-                  width: MediaQuery.of(context).size.width*0.4,
+                  width: MediaQuery.of(context).size.width*0.42,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.grey[300]),
                     ),
-                    child: Text(
-                      'With Apple',
-                      style: TextStyle(color: Colors.black),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset('assets/svgs/apple.svg'),
+                        Text(
+                          'With Apple',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height*0.07,
-                  width: MediaQuery.of(context).size.width*0.4,
+                  width: MediaQuery.of(context).size.width*0.42,
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.grey[300]),
                     ),
-                    onPressed: () {},
-                    child: Text(
-                      'With Google',
-                      style: TextStyle(color: Colors.black),
+                    onPressed: () {
+                      Get.offAll(() => HealthIntegrationScreen());
+
+                    },
+                    child: Row(
+                      children: [
+                        SvgPicture.asset('assets/svgs/google.svg'),
+                        Text(
+                          'With Google',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
                     ),
                   ),
                 ),

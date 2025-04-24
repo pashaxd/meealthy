@@ -9,8 +9,13 @@ class TextStyles {
     color: Colors.white,
   );
   static TextStyle defaultLittleStyle = TextStyle(
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: FontWeight.w300,
+    color: Colors.black,
+  );
+  static TextStyle defaultMiddleStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
     color: Colors.black,
   );
   static TextStyle defaultStyle = TextStyle(
