@@ -106,10 +106,22 @@ class MealPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    'assets/svgs/star.svg',
-                    width: 24,
-                    height: 24,
+                  Row(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/svgs/star.svg',
+                        width: 20,
+                        height: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Meal for you',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 8),
                   MealContainer(

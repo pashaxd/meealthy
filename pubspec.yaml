@@ -40,7 +40,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   carousel_slider: ^5.0.0
   flutter_svg: ^2.1.0
-
+  flutter_picker_plus: ^1.5.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,6 +75,8 @@ flutter:
     - assets/svgs/icons_bottom/stats.svg
     - assets/svgs/icons_bottom/tests.svg
     - assets/svgs/icons_bottom/health.svg
+    - assets/pngs/how_to_do.png
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -38,7 +38,15 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: CustomAppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Obx(
+          () =>
+              controller.selectedIndex.value == 0
+                  ? const CustomAppBar()
+                  : SizedBox.shrink(),
+        ),
+      ),
       body: Obx(
         () => AnimatedOpacity(
           opacity: controller.opacity.value,

@@ -2,7 +2,7 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - health (12.1.0):
+  - health (12.2.0):
     - Flutter
   - permission_handler_apple (9.3.0):
     - Flutter
@@ -24,9 +24,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
 
 SPEC CHECKSUMS:
-  device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
+  device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  health: a421b1627a55d3200cc1661cbfbd068439b09938
+  health: e739f88e8030f47660f93bf7af2ae775b01766dd
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
 
 PODFILE CHECKSUM: 8530bc6b31a29af0ef45053e70be03260175d373
