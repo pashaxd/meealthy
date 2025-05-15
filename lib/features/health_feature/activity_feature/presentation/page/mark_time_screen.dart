@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meealthy/core/presentation/bottom_navigation/bottom_navigation.dart';
+import 'package:meealthy/features/health_feature/activity_feature/presentation/controller/activity_controller.dart';
 import 'package:meealthy/features/health_feature/activity_feature/presentation/page/activity_widget.dart';
 import 'package:meealthy/utils/text_styles/text_styles.dart';
 
@@ -22,6 +23,7 @@ class MarkTimeScreen extends StatelessWidget {
       FixedExtentScrollController();
 
   final timeController = Get.find<TimeController>();
+  final activityController = Get.find<ActivityController>();
 
   @override
   Widget build(BuildContext context) {
@@ -331,6 +333,24 @@ class MarkTimeScreen extends StatelessWidget {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
               onPressed: () {
+                if (timeController.hour.value == 0 &&
+                    timeController.minute.value == 0) {
+                  Get.snackbar(
+                    'Warning',
+                    'Please select a valid time (cannot be 0:0)',
+                    snackPosition: SnackPosition.TOP,
+                    backgroundColor: Colors.red[100],
+                    colorText: Colors.black,
+                    duration: const Duration(seconds: 2),
+                    margin: const EdgeInsets.all(8),
+                  );
+                  return;
+                }
+
+                activityController.addActivity(
+                  title,
+                  '${timeController.hour.value} h ${timeController.minute.value} min',
+                );
                 timeController.reset();
                 Get.to(() => BottomNavigation());
               },

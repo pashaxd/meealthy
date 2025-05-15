@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meealthy/features/health_feature/activity_feature/presentation/page/activity_widget.dart';
+import 'package:meealthy/features/health_feature/habits_feature/presentation/page/habits_widget.dart';
 import 'package:meealthy/features/health_feature/meal_feature/presentation/controllers/health_controller.dart';
 import 'package:meealthy/features/health_feature/meal_feature/presentation/page/meal_page.dart';
 import 'package:meealthy/utils/text_styles/text_styles.dart';
@@ -130,7 +131,7 @@ class HealthScreen extends StatelessWidget {
       case 1:
         return ActivityWidget();
       case 2:
-        return const Center(child: Text('Habits Content'));
+        return HabitsWidget();
       default:
         return const SizedBox();
     }
