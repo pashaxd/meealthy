@@ -11,4 +11,4 @@ class AppBarController extends GetxController {
   void setSelectedTab(int index) {
     selectedTabIndex.value = index;
   }
-} 
+}

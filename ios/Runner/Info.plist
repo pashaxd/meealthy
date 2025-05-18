@@ -49,6 +49,12 @@
 	<string>We need access to your health data to track your fitness progress</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>We need permission to update your health data</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photo library to let you add profile pictures and share your fitness progress</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to let you take photos for your profile and document your fitness journey</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to your microphone to record voice messages</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>healthkit</string>

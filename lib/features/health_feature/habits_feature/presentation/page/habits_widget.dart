@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:meealthy/core/presentation/bottom_navigation/widgets/app_bar/app_bar_controller.dart';
 import 'package:meealthy/features/health_feature/activity_feature/presentation/page/adding_screen.dart';
-import 'package:meealthy/features/health_feature/habits_feature/presentation/page/widgets/adding_screen.dart';
+import 'package:meealthy/features/health_feature/habits_feature/presentation/controller/habits_controller.dart';
+import 'package:meealthy/features/health_feature/habits_feature/presentation/widgets/adding_screen.dart';
 import 'package:meealthy/utils/text_styles/text_styles.dart';
 
 class HabitsWidget extends StatelessWidget {
-  const HabitsWidget({super.key});
+  HabitsWidget({super.key});
+  final HabitsController habitsController = Get.put(HabitsController());
+  final AppBarController appBarController = Get.find<AppBarController>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,25 +58,88 @@ class HabitsWidget extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.9,
-            height: 50,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-              onPressed: () {
-                Get.to(() => const AddingHabitScreen());
-              },
-              child: Text(
-                'Add my habits',
-                style: TextStyles.defaultButtonStyle,
+        Obx(() {
+          if (appBarController.selectedDayIndex.value == 0) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                  ),
+                  onPressed: () {
+                    Get.to(() => const AddingHabitScreen());
+                  },
+                  child: Text(
+                    'Add my habits',
+                    style: TextStyles.defaultButtonStyle,
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
+            );
+          }
+          return const SizedBox.shrink();
+        }),
+        Obx(() {
+          if (appBarController.selectedDayIndex.value == 0) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Your results today: ',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  child: SingleChildScrollView(
+                    child: Obx(
+                      () => Column(
+                        children:
+                            habitsController.habits.map((habit) {
+                              return Container(
+                                margin: const EdgeInsets.only(bottom: 8),
+                                padding: const EdgeInsets.only(
+                                  top: 12,
+                                  bottom: 12,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        habit.name,
+                                        style: TextStyles.defaultLittleStyle,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    const Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 14,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }
+          return const SizedBox.shrink();
+        }),
       ],
     );
-    ;
   }
 }

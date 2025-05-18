@@ -28,7 +28,7 @@ class NavigationController extends GetxController {
 
   Future<void> changePage(int index) async {
     if (index == selectedIndex.value) return;
-    
+
     opacity.value = 0;
     await Future.delayed(const Duration(milliseconds: 150));
     selectedIndex.value = index;
@@ -45,4 +45,4 @@ class NavigationController extends GetxController {
       selectedIndex.value = index;
     }
   }
-} 
+}

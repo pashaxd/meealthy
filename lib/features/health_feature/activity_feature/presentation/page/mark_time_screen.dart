@@ -352,7 +352,7 @@ class MarkTimeScreen extends StatelessWidget {
                   '${timeController.hour.value} h ${timeController.minute.value} min',
                 );
                 timeController.reset();
-                Get.to(() => BottomNavigation());
+                Get.off(() => BottomNavigation());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

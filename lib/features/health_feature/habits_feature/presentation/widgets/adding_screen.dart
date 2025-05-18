@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:meealthy/features/health_feature/activity_feature/presentation/widgets/adding_button.dart';
 import 'package:meealthy/features/health_feature/activity_feature/presentation/widgets/adding_info_widget.dart';
+import 'package:meealthy/features/health_feature/habits_feature/presentation/widgets/adding_habbit_button.dart';
 import 'package:meealthy/utils/text_styles/text_styles.dart';
 
 class AddingHabitScreen extends StatelessWidget {
@@ -39,9 +40,9 @@ class AddingHabitScreen extends StatelessWidget {
               description:
                   'The result of regular aerobics classes is to keep the body toned, to train muscles and skin, and to improve the overall health of the body',
               children: [
-                AddingButton(title: 'Bath with magnesium salt'),
-                AddingButton(title: 'Breathing exercises'),
-                AddingButton(title: 'Sleep mode'),
+                AddingHabbitButton(title: 'Bath with magnesium salt'),
+                AddingHabbitButton(title: 'Breathing exercises'),
+                AddingHabbitButton(title: 'Sleep mode'),
               ],
             ),
           ],

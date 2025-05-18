@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:meealthy/core/presentation/bottom_navigation/widgets/app_bar/custom_app_bar.dart';
 import 'package:meealthy/features/health_feature/screen/health_screen.dart';
+import 'package:meealthy/features/mealthy_chat_feature/presentation/chat_screen.dart';
 import 'navigation_controller.dart';
 
 class BottomNavigation extends StatelessWidget {
@@ -12,7 +13,7 @@ class BottomNavigation extends StatelessWidget {
 
   final List<Widget> _pages = [
     const HealthScreen(),
-    const Center(child: Text('Meealthy Page')),
+    ChatScreen(),
     const Center(child: Text('Stats Page')),
     const Center(child: Text('Tests Page')),
   ];
